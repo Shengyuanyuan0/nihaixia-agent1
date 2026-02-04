@@ -25,6 +25,10 @@ export async function POST(req: Request) {
     form.set("day", String(body.day));
     form.set("hours", String(body.hours));
     form.set("minute", String(body.minute ?? 0));
+    form.set("sect", String(body.sect ?? 1));     // 可不传，默认1
+form.set("zhen", String(body.zhen ?? 2));     // 可不传，默认2：不使用真太阳时
+form.set("timezone", String(body.timezone ?? "Asia/Shanghai"));
+
 
     const r = await fetch(url, {
       method: "POST",
